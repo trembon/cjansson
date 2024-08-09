@@ -1,0 +1,53 @@
+﻿.post-heading {
+    time {
+        font-size: 90%;
+        color: #888;
+    }
+
+    .tags {
+        margin-left: 10px;
+        font-size: 11px;
+
+        .tag {
+            background: #9d8b8b;
+            color: #FFF;
+            padding: 2px 7px;
+        }
+    }
+
+    .share-btns {
+        float: right;
+
+        a {
+            display: inline-block;
+        }
+
+        svg {
+            width: 24px;
+            height: 24px;
+            display: block;
+            transition: transform linear 0.1s;
+
+            &:hover {
+                transform: scale(2, 2);
+            }
+        }
+    }
+}
+
+.content{
+    padding-top: 30px;
+    padding-bottom: 80px;
+}
+
+.content > *{
+    margin: 0;
+    margin-bottom: 25px;
+}
+
+.content img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+}

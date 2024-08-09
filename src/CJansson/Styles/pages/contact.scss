@@ -1,0 +1,107 @@
+﻿@import "../_base/_config.scss";
+
+.contact h2{
+    color: $red;
+    text-align: center;
+    font-size: 200%;
+}
+
+.social-media-icons {
+    text-align: center;
+    display: block;
+    width: 100%;
+    margin-bottom: 40px;
+
+    a {
+        display: inline-block;
+        width: 30%;
+        max-width: 100px;
+        margin: 0 15px;
+
+        svg {
+            display: block;
+            width: 100%;
+            max-width: 100px;
+            margin: 0 auto;
+        }
+    }
+}
+
+.contact form div.input{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.contact form div.input input{
+    width: 100%;
+    padding: 5px 20px;
+    max-width: 400px;
+    text-align: center;
+    border: 0 none;
+    border-bottom: 3px solid $grey;
+    transition: border-color linear 0.2s;
+
+    &:focus{
+        border-bottom-color: $red;
+    }
+}
+
+.contact form div.input textarea{
+    width: 100%;
+    padding: 10px;
+    max-width: 400px;
+    height: 150px;
+    text-align: left;
+    border: 0 none;
+    border: 3px solid transparent;
+    border-left-color: $grey;
+    transition: border-color linear 0.2s;
+
+    &:focus{
+        border-left-color: $red;
+    }
+}
+
+.contact form div.input input:invalid, .contact form div.input textarea:invalid{
+    box-shadow: none;
+}
+
+.contact form div.input label{
+    position: absolute;
+    visibility: hidden;
+}
+
+.contact form div.captcha div{
+    position: relative;
+    margin: 0 auto 30px;
+
+    textarea{
+        position: absolute !important;
+        top: 100% !important;
+        visibility: hidden !important;
+        width: 100% !important;
+        height: 1px !important;
+        display: block !important;
+        margin: 0 !important;
+    }
+}
+
+.contact form .submit{
+    text-align: center;
+
+    input{
+        background: $red;
+        border: 0 none;
+        padding: 5px 20px;
+        color: $white;
+        font-size: 130%;
+
+        &:hover, &:focus{
+            box-shadow: $red 0 0 10px;
+        }
+    }
+}
+
+.contact > p{
+    text-align: center;
+}

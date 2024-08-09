@@ -1,0 +1,39 @@
+﻿.splash {
+    display: block;
+    position: relative;
+    width: 100%;
+    background-image: url('/images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+}
+
+.splash h2 {
+    color: #ed786a;
+    font-size: 50px;
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding: 30px 10px;
+    margin: 70px 0;
+    background: rgba(240, 240, 240, 0.9);
+
+    @media (min-width: 768px) {
+        font-size: 70px;
+        width: auto;
+        margin: 150px 0;
+        padding: 40px 100px;
+    }
+}
+
+.splash.small h2 {
+    font-size: 40px;
+    padding: 30px 10px;
+    margin: 40px 0;
+
+    @media (min-width: 768px) {
+        font-size: 50px;
+        padding: 30px 60px;
+        margin: 60px 0;
+    }
+}

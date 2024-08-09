@@ -1,0 +1,20 @@
+﻿@import "_base/_config";
+
+body{
+    background: #f0f0f0;
+}
+
+.container{
+    text-align: center;
+}
+
+.container h1 {
+    color: #ed786a;
+    font-size: 50px;
+    padding: 30px 10px;
+    margin: 70px 0 0;
+}
+
+.container a, .container a:hover, .container a:visited {
+    color: #ed786a;
+}

@@ -1,0 +1,89 @@
+﻿@import "../_base/_config.scss";
+
+.blog-list article{
+    margin-bottom: 50px;
+    padding: 0 100px 0 0;
+    position: relative;
+}
+
+.blog-list article h2{
+    font-size: 36px;
+    line-height: 36px;
+    margin: 0;
+
+    a, a:hover, a:focus{
+        color: $red;
+
+        &:hover, &:focus{
+            text-decoration: none;
+        }
+    }
+}
+
+.blog-list article time{
+    position: absolute;
+    right: 0;
+    top: 5px;
+    background: $red;
+    color: $white;
+    padding: 8px 0;
+    width: 80px;
+
+    span{
+        display: block;
+        text-align: center;
+    }
+
+    .day{
+        font-size: 26px;    
+        line-height: 24px;
+    }
+
+    .month{
+        font-size: 16px;
+    }
+
+    .year{
+        font-size: 12px;
+    }
+}
+
+.blog-list article p{
+    margin: 10px 0 30px;
+}
+
+.blog-list article .share-btns {
+    position: absolute;
+    top: 90px;
+    right: 0;
+
+    a{
+        display: block;
+        float: left;
+
+        &:not(:last-child){
+            margin-right: 4px;
+        }
+    }
+
+    svg {
+        width: 24px;
+        height: 24px;
+        display: block;
+        transition: transform linear 0.1s;
+
+        &:hover {
+            transform: scale(2, 2);
+        }
+    }
+}
+
+.blog-list article .tags{
+    font-size: 12px;
+
+    a{
+        background: #9d8b8b;
+        color: #FFF;
+        padding: 3px 10px;
+    }
+}

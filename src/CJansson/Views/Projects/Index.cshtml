@@ -1,0 +1,66 @@
+﻿@model CJansson.ViewModels.Projects.ProjectListViewModel
+@{
+    ViewBag.Title = "Projects";
+}
+
+@section header{
+    <meta name="description" content="My personal website, CV and blog">
+
+    <meta property="og:site_name" content="CJansson.se" />
+    <meta property="og:title" content="CJansson.se - Projects" />
+    <meta property="og:url" content="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="My personal website, CV and blog" />
+
+    <meta property="og:image" content="@Context.Request.Scheme://@Context.Request.Host/images/background.jpg" />
+    <meta property="og:image:secure_url" content="@Context.Request.Scheme://@Context.Request.Host/images/background.jpg" />
+}
+
+@{
+    TimeSpan fetchedSpan = DateTime.UtcNow - Model.ReposFetchedAt;
+    string fetchTimeAgo = "";
+    if (fetchedSpan.TotalSeconds < 60)
+    {
+        fetchTimeAgo = $"{fetchedSpan.Seconds} second(s) ago";
+    }
+    else if (fetchedSpan.TotalMinutes < 60)
+    {
+        fetchTimeAgo = $"{fetchedSpan.Minutes} minute(s) ago";
+    }
+    else
+    {
+        fetchTimeAgo = $"{fetchedSpan.Hours} hour(s) ago";
+    }
+}
+
+<div class="splash small">
+    <h2>Projects</h2>
+</div>
+
+<div class="content container">
+    <section class="project-list">
+        <h2 class="sr-only">Blog</h2>
+        <div class="notice">
+            <p>Information was generated from <a href="https://github.com/@Model.GitHubUser" target="_blank">GitHub</a> @fetchTimeAgo</p>
+            <hr />
+        </div>
+
+        @foreach(var repo in Model.Repos)
+        {
+            <article>
+                <header>
+                    <h2><a href="@repo.HtmlUrl" target="_blank">@repo.Name</a> <span class="tag">@repo.Language</span></h2>
+                    <div class="info">
+                        <div class="star">@repo.StargazersCount</div>
+                    </div>
+                </header>
+
+                <p>@(repo.Description ?? "No description")</p>
+                
+                <footer>
+                    <p class="time">Last update: <time datetime="@repo.UpdatedAt.ToString("s")">@repo.UpdatedAt.ToString("MMMM dd, yyyy")</time></p>
+                </footer>
+            </article>
+        }
+    </section>
+</div>

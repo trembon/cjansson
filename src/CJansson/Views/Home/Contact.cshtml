@@ -1,0 +1,80 @@
+﻿@model CJansson.ViewModels.Home.ContactViewModel
+@{
+    ViewBag.Title = "Contact";
+}
+
+@section header{
+    <meta name="description" content="My personal website, CV and blog">
+
+    <meta property="og:site_name" content="CJansson.se" />
+    <meta property="og:title" content="CJansson.se - Contact" />
+    <meta property="og:url" content="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="My personal website, CV and blog" />
+
+    <meta property="og:image" content="@Context.Request.Scheme://@Context.Request.Host/images/background.jpg" />
+    <meta property="og:image:secure_url" content="@Context.Request.Scheme://@Context.Request.Host/images/background.jpg" />
+
+    <script type="text/javascript">
+        function recaptchaCallback(p1, p2, p3) {
+            grecaptcha.render('g-recaptcha', {
+                'sitekey': '6LfWjQoUAAAAAFF6MsYatKNLi49bhMO8TOml-g0_'
+            });
+
+            var textarea = document.querySelector("form .captcha textarea");
+            if (textarea !== null) {
+                textarea.setAttribute("required", "required");
+            }
+        }
+    </script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=recaptchaCallback&render=explicit" async defer></script>
+}
+
+<div class="splash small">
+    <h2>Contact</h2>
+</div>
+
+<div class="content contact container">
+    <h2>Social Media</h2>
+    <div class="social-media-icons">
+        <a href="https://www.facebook.com/trembon" title="Facebook - Christopher Jansson" target="_blank" rel="nofollow">
+            <svg viewBox="0 0 67 67" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linejoin="round" d="M28.765 50.32h6.744V33.997h4.497l.596-5.624H35.51l.006-2.816c0-1.466.14-2.253 2.244-2.253h2.812V17.68h-4.5c-5.405 0-7.307 2.73-7.307 7.317v3.377h-3.37V34h3.37v16.32zM3 4h60v60H3V4z" fill-rule="evenodd" clip-rule="evenodd" fill="#3A589B" />
+            </svg>
+        </a>
+
+        <a href="https://www.linkedin.com/in/christopher-jansson" title="LinkedIn - Christopher Jansson" target="_blank" rel="nofollow">
+            <svg viewBox="0 0 67 67" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linejoin="round" d="M49.837 48.137V36.425c0-6.274-3.35-9.194-7.816-9.194-3.602 0-5.217 1.984-6.117 3.375V27.71h-6.79c.09 1.917 0 20.428 0 20.428h6.79v-11.41c0-.61.044-1.22.224-1.656.49-1.22 1.607-2.482 3.482-2.482 2.457 0 3.44 1.873 3.44 4.618v10.93h6.79zM21.96 24.922c2.366 0 3.84-1.57 3.84-3.53-.043-2.004-1.474-3.53-3.796-3.53s-3.84 1.526-3.84 3.53c0 1.96 1.473 3.53 3.752 3.53h.043zm3.394 23.215V27.71h-6.79v20.427h6.79zM3 4h60v60H3V4z" fill-rule="evenodd" clip-rule="evenodd" fill="#007AB9" />
+            </svg>
+        </a>
+    </div>
+
+    <h2>Send Message</h2>
+    <form id="contactForm" method="post">
+        <div class="input">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" placeholder="Name" />
+        </div>
+        <div class="input">
+            <label asp-for="Email"></label>
+            <input asp-for="Email" placeholder="Email" />
+        </div>
+        <div class="input hidden">
+            <label asp-for="Source"></label>
+            <input asp-for="Source" placeholder="Source" />
+        </div>
+        <div class="input">
+            <label asp-for="Text"></label>
+            <textarea asp-for="Text" placeholder="Message"></textarea>
+        </div>
+
+        <div class="captcha">
+            <div id="g-recaptcha"></div>
+        </div>
+
+        <div class="submit">
+            <input type="submit" value="Send" />
+        </div>
+    </form>
+</div>

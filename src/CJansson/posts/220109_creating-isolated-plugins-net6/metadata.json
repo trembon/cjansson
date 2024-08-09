@@ -1,0 +1,7 @@
+{
+    "name": "Creating isolated plugins in .NET6",
+    "description": "An example on how to load plugins in isolated containers with NET6",
+    "publish": "2022-01-09 20:39",
+    "tags": ["C#", "NET6"],
+    "secret": "abd9314d-658b-4155-8075-5bda1cab3dd2"
+}

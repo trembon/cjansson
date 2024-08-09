@@ -1,0 +1,18 @@
+[
+  {
+    "outputFileName": "wwwroot/js/bundle.js",
+    "inputFiles": [
+      "wwwroot/lib/prism.js",
+      "wwwroot/lib/prism.custom.js",
+      "wwwroot/ts/site.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/bundle.css",
+    "inputFiles": [
+      "wwwroot/lib/prism.css",
+      "wwwroot/lib/prism.custom.css",
+      "wwwroot/scss/site.css"
+    ]
+  }
+]

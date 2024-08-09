@@ -1,0 +1,85 @@
+﻿@import "../_base/_config.scss";
+
+.project-list .notice{
+    font-size: 14px;
+    text-align: center;
+    color: $grey;
+
+    p{
+        padding: 0;
+        margin: 0;
+    }
+
+    hr{
+        margin-bottom: 30px;
+        width: 90%;
+        margin-right: auto;
+        margin-left: auto;
+        background: $grey;
+        height: 1px;
+        border: none;
+    }
+}
+
+.project-list article{
+    margin-bottom: 50px;
+    padding: 0 100px 0 0;
+    position: relative;
+}
+
+.project-list article h2 {
+    font-size: 36px;
+    line-height: 36px;
+    margin: 0;
+
+    a, a:hover, a:focus {
+        color: $red;
+
+        &:hover, &:focus {
+            text-decoration: none;
+        }
+    }
+
+    .tag {
+        font-size: 12px;
+        background: #9d8b8b;
+        color: #FFF;
+        padding: 3px 10px;
+        vertical-align: middle;
+    }
+}
+
+.project-list header .info {
+    position: absolute;
+    right: 0;
+    top: 5px;
+    text-align: center;
+
+    .star {
+        height: 50px;
+        width: 50px;
+        margin-bottom: 5px;
+        font-size: 14px;
+        -webkit-clip-path: polygon(50% 0%, 68% 26%, 98% 35%, 79% 62%, 79% 91%, 51% 78%, 21% 91%, 22% 59%, 2% 35%, 31% 28%);
+        clip-path: polygon(50% 0%, 68% 26%, 98% 35%, 79% 62%, 79% 91%, 51% 78%, 21% 91%, 22% 59%, 2% 35%, 31% 28%);
+        text-align: center;
+        background: $red;
+        color: $white;
+
+        &::before {
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+            content: '';
+        }
+    }
+}
+
+.project-list article p {
+    margin: 10px 0 20px;
+}
+
+.project-list article .time {
+    font-size: 14px;
+    margin: 5px 0 10px;
+}

@@ -1,0 +1,274 @@
+﻿@charset "UTF-8";
+
+body{
+    padding-top: 133px;
+
+    @media(min-width: 768px) {
+        padding-top: 80px;
+    }
+}
+
+.header {
+    background: #f0f0f0;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    transition: all 0.2s ease-in-out;
+    border-bottom: 3px solid #ed786a;
+
+    @media(min-width: 768px) {
+        & {
+            height: 80px;
+        }
+    }
+}
+
+.header .logo {
+    text-align: center;
+
+    h1 {
+        display: inline-block;
+        margin: 0;
+        font-size: 50px;
+        height: 60px;
+        line-height: 60px;
+        margin-left: 10px;
+
+        .full {
+            font-size: 0;
+            opacity: 0;
+        }
+
+        a {
+            display: block;
+            color: #ed786a;
+
+            &:hover, &:focus {
+                text-decoration: none;
+            }
+        }
+
+        span {
+            transition: all 0.1s ease-in-out;
+        }
+    }
+
+    @media(min-width: 768px) {
+        & {
+            float: left;
+        }
+
+        & h1 {
+            height: 80px;
+            line-height: 80px;
+            margin-left: 0;
+        }
+
+        & h1 a {
+            height: 80px;
+        }
+    }
+}
+
+.header .logo .extra {
+    color: #555;
+    display: none;
+    font-size: 20px;
+}
+
+.header .menu {
+    text-align: center;
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        display: inline-block;
+    }
+
+    @media(min-width: 768px) {
+        & {
+            float: right;
+        }
+    }
+
+    a {
+        position: relative;
+        display: inline-block;
+        text-align: center;
+        height: 70px;
+        font-size: 18px;
+        padding-top: 5px;
+        cursor: pointer;
+        width: 80px;
+        transition: all 0.2s ease-in-out;
+        color: #333;
+
+        /* using svg as icons */
+        svg {
+            width: 30px;
+            height: 30px;
+            padding: 5px;
+            border-radius: 100%;
+            background: #878787;
+            fill: #e4e4e4;
+            transition: all 0.2s ease-in-out;
+        }
+
+        /* for the text in the menu items */
+        span {
+            display: block;
+        }
+
+        &:visited, &:focus {
+            color: #333;
+        }
+
+        &.selected, &:hover, &:focus {
+            color: #ed786a;
+            text-decoration: none;
+
+            svg {
+                background: #ed786a;
+                fill: #fff;
+            }
+        }
+
+        @media(min-width: 768px) {
+            & {
+                width: 100px;
+                height: 80px;
+                padding-top: 10px;
+            }
+
+            & svg {
+                width: 35px;
+                height: 35px;
+            }
+
+            &.selected, &:hover, &:focus {
+                color: #fff;
+                background: #ed786a;
+                text-decoration: none;
+
+                svg {
+                    background: #fff;
+                    fill: #878787;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+.expanded .header .logo {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.expanded .header .logo h1 {
+    font-size: 40px;
+    line-height: 30px;
+}
+
+.expanded .header .logo h1 a {
+    height: 80px;
+}
+
+.expanded .header .logo h1 .space {
+    display: block;
+}
+
+.expanded .header .logo .extra {
+    display: block;
+}
+
+.expanded .header .menu a {
+    height: 80px;
+    font-size: 20px;
+    padding-top: 10px;
+}
+
+.expanded .header .menu a svg {
+    width: 35px;
+    height: 35px;
+}
+
+.expanded .header .menu a:hover, .expanded .header .menu a:focus {
+    color: #ed786a;
+    text-decoration: none;
+}
+
+.expanded .header .menu a:hover svg, .expanded .header .menu a:focus svg {
+    background: #ed786a;
+    fill: #FFF;
+}
+
+.expanded .split {
+    margin-top: 40px;
+}
+
+@media (min-width: 992px) {
+    .expanded .header .logo {
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .expanded .header .logo h1 {
+        font-size: 50px;
+        height: 80px;
+        line-height: 80px;
+    }
+
+    .expanded .header .logo h1 .space {
+        padding: 10px;
+        display: inline;
+    }
+
+    .expanded .header .menu a {
+        width: 150px;
+    }
+
+    .expanded .header .menu a svg {
+        width: 40px;
+        height: 40px;
+    }
+
+    .expanded .split {
+        margin-top: 20px;
+        margin-bottom: 100px;
+    }
+}
+
+/*@media (min-width: 768px) {
+    
+    .header .logo h1 {
+        height: 80px;
+        line-height: 80px;
+        margin-left: 0;
+    }
+
+    .header .logo h1 a {
+        height: 80px;
+    }
+
+    .header .menu a {
+        float: left;
+        width: 100px;
+        height: 80px;
+        padding-top: 10px;
+    }
+
+    .header .menu a svg {
+        width: 35px;
+        height: 35px;
+    }
+}*/

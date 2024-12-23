@@ -44,7 +44,7 @@ namespace CJansson.Services
         private async Task<GitHubRepositoryList> GetPublicReposInternal(string username)
         {
             var request = new HttpRequestMessage(HttpMethod.Get, string.Format(GITHUB_REPO_URL_FORMAT, username));
-            request.Headers.UserAgent.Add(new System.Net.Http.Headers.ProductInfoHeaderValue("cjansson.se", typeof(Startup).Assembly.GetName().Version.ToString()));
+            request.Headers.UserAgent.Add(new System.Net.Http.Headers.ProductInfoHeaderValue("cjansson.se", typeof(Program).Assembly.GetName().Version.ToString()));
             request.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
 
             var client = httpClientFactory.CreateClient(GITHUB_HTTPCLIENT);

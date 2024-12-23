@@ -1,25 +1,45 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore;
-using Microsoft.AspNetCore.Hosting;
+﻿using CJansson.Services;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
-namespace CJansson
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Configuration.AddEnvironmentVariables(prefix: "APP_");
+
+builder.Services.AddRouting(options =>
 {
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            CreateWebHostBuilder(args).Build().Run();
-        }
+    options.AppendTrailingSlash = true;
+    options.LowercaseUrls = true;
+});
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseUrls("http://+:5000")
-                .UseStartup<Startup>();
-    }
+builder.Services.AddMvc();
+builder.Services.AddHttpClient();
+
+builder.Services.AddSingleton<IBlogService, BlogService>();
+builder.Services.AddSingleton<IGitHubService, GitHubService>();
+builder.Services.AddSingleton<IFileEventService, FileEventService>();
+builder.Services.AddSingleton<IContentProcessorService, ContentProcessorService>();
+
+var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
 }
+else
+{
+    app.UseExceptionHandler("/Home/Error");
+    app.UseHsts();
+}
+
+app.UseStaticFiles();
+
+app.UseRouting();
+app.MapDefaultControllerRoute();
+
+app.Services.GetRequiredService<IBlogService>().Build();
+app.Services.GetRequiredService<IFileEventService>().Bind();
+
+app.Run();
